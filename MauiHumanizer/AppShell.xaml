@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell
+    x:Class="MauiHumanizer.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiHumanizer"
+    Title="MauiHumanizer">
+
+    <TabBar Route="LoggedInView">
+        <Tab Title="Home" Route="Home">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Other" Route="Other">
+            <ShellContent ContentTemplate="{DataTemplate local:OtherPage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>
