@@ -7,21 +7,25 @@
              x:Class="MauiShellColors.MainPageChild"
              Title="MainPageChild">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a hovercraft number nine" />
-                
-            <Label
-                Text="MainPageChild!"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
-        </VerticalStackLayout>
-    </ScrollView>
+    <VerticalStackLayout Padding="30,0" Spacing="12">
+        <Label
+            Text="MainPageChild!"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1" />
+        <CollectionView ItemsSource="{Binding Items}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="5" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <BoxView
+                        Color="{Binding .}"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        Margin="2" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
 
 </ContentPage>

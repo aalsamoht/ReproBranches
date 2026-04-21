@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiShellColors", "MauiShellColors\MauiShellColors.csproj", "{0BB96E85-9936-42B3-9148-E6D3BCBAC8F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiShellColorsNet9", "MauiShellColors\MauiShellColorsNet9.csproj", "{0BB96E85-9936-42B3-9148-E6D3BCBAC8F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiShellColorsNet10", "MauiShellColors\MauiShellColorsNet10.csproj", "{4D5953DE-897F-4667-947D-92139C8A2900}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +14,9 @@ Global
 		{0BB96E85-9936-42B3-9148-E6D3BCBAC8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BB96E85-9936-42B3-9148-E6D3BCBAC8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BB96E85-9936-42B3-9148-E6D3BCBAC8F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D5953DE-897F-4667-947D-92139C8A2900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D5953DE-897F-4667-947D-92139C8A2900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D5953DE-897F-4667-947D-92139C8A2900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D5953DE-897F-4667-947D-92139C8A2900}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

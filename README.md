@@ -2,15 +2,21 @@
 A collection of minimal bug reproduction cases, organized by branches.
 
 ## App
-The app works as expected on iOS.
-The app works as expected on Android when using 8.0.100, 9.0.0, or 9.0.22.
-The app does not work as expected on Android when using 9.0.30, 9.0.40, or 9.0.70.
+The app works as expected on Android and iOS with `MauiShellColorsNet9.csproj` (9.0.22).
+The app works as expected on iOS with `MauiShellColorsNet10.csproj` (10.0.51).
+The app does not work as expected on Android with `MauiShellColorsNet10.csproj` (MAUI 10.0.51).
 
-The app has two Tabs, *Home* and *Other*.
+The app has two Tabs, *Home* and *Other*. Each tab has a child page with a list of colored squares
+that is populated in `OnAppearing` to introduce a small delay and expose a Shell color timing bug.
 
-* On the *Home* tab click the *Go to child* button
-* Click the *Other* tab
-* Click the *Home* tab, the Shell colors are no longer correct
-* Click the *Other* tab and then click the *Go to child* button
-* Click the *Home* tab, the Shell colors are are the same colors used by the *Other* tab child page.
-* To continue testing. Leave one child page open, then navigate to the other. The page that was navigated to last will replace the Shell colors set in the previously opened child page.
+Each child page sets distinct Shell colors (title color, foreground, background).
+
+To reproduce:
+
+* Build and run using `MauiShellColorsNet10.csproj`
+* On the *Home* tab, click the *Go to child* button to navigate to the child page
+* On the *Other* tab, click the *Go to child* button to navigate to the child page
+* Switch between the tabs while the child pages are open
+
+The Shell colors of the page being navigated *to* are applied before the navigation completes,
+so the current page briefly shows the wrong Shell colors — the ones belonging to the destination page.
