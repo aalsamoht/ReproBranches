@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiSourceGenRelativeSource.Models"
+             xmlns:viewModels="clr-namespace:MauiSourceGenRelativeSource.ViewModels"
+             x:Class="MauiSourceGenRelativeSource.Views.TestingPage"
+             x:DataType="viewModels:TestingViewModel"
+             Title="Testing Page 1 (inline DataTemplate)">
+    <ContentPage.Content>
+        <Grid>
+            <CollectionView
+                ItemSizingStrategy="MeasureFirstItem"
+                ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:TestItem">
+                        <ContentView>
+                            <Border
+                                Margin="8,4"
+                                Padding="12"
+                                BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#2a2a2a}"
+                                StrokeThickness="1">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="8" />
+                                </Border.StrokeShape>
+                                <Grid ColumnDefinitions="*,40" ColumnSpacing="8">
+                                    <Label
+                                        Grid.Column="0"
+                                        FontSize="16"
+                                        VerticalOptions="Center"
+                                        Text="{Binding Name, Mode=OneTime}" />
+                                    <Border
+                                        Grid.Column="1"
+                                        Padding="5"
+                                        BackgroundColor="#FF6B6B"
+                                        HeightRequest="35"
+                                        WidthRequest="35"
+                                        StrokeThickness="0">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="18" />
+                                        </Border.StrokeShape>
+                                        <Label
+                                            FontSize="16"
+                                            HorizontalOptions="Center"
+                                            Text="🗑"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Command="{Binding DeleteItemCommand, Mode=OneTime, Source={RelativeSource AncestorType={x:Type viewModels:TestingViewModel}}, x:DataType=viewModels:TestingViewModel}"
+                                                    CommandParameter="{Binding ., Mode=OneTime}" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

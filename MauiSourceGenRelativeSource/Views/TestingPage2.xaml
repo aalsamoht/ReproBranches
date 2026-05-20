@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:MauiSourceGenRelativeSource.ViewModels"
+             xmlns:templates="clr-namespace:MauiSourceGenRelativeSource.Views.Templates"
+             x:Class="MauiSourceGenRelativeSource.Views.TestingPage2"
+             x:DataType="viewModels:TestingViewModel"
+             Title="Testing Page 2 (ItemView)">
+    <ContentPage.Content>
+        <Grid>
+            <CollectionView
+                ItemSizingStrategy="MeasureFirstItem"
+                ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <templates:TestItemView
+                            ItemTappedCommand="{Binding DeleteItemCommand, Mode=OneTime, Source={RelativeSource AncestorType={x:Type viewModels:TestingViewModel}}, x:DataType=viewModels:TestingViewModel}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
